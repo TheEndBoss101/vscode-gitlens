@@ -36,7 +36,7 @@ export function gate<T extends (...arg: any) => any>(resolver?: (...args: Parame
 				this[prop] = promise;
 				void promise.finally(() => (this[prop] = undefined));
 
-				// if (DEBUG) {
+				// if (true) {
 				// 	const timeout = setTimeout(() => {
 				// 		console.debug(`[gate] ${key} took too long to resolve`, this, ...args);
 				// 		debugger;

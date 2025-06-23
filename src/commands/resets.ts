@@ -80,7 +80,7 @@ export class ResetCommand extends GlCommandBase {
 			},
 		];
 
-		if (DEBUG) {
+		if (true) {
 			items.push(
 				createQuickPickSeparator('DEBUG'),
 				{
@@ -210,7 +210,7 @@ export class ResetCommand extends GlCommandBase {
 				await this.container.storage.resetWorkspace();
 				break;
 			default:
-				if (DEBUG) {
+				if (true) {
 					switch (reset) {
 						case 'subscription':
 							await this.container.storage.delete('premium:subscription');
