@@ -81,7 +81,7 @@ export function getSubscriptionFromCheckIn(
 	if (chosenPaidLicense != null) {
 		const [licenseType, license] = chosenPaidLicense;
 		actual = getSubscriptionPlan(
-			convertLicenseTypeToPlanId(licenseType),
+			'enterprise',
 			isBundleLicenseType(licenseType),
 			license.reactivationCount ?? 0,
 			license.organizationId,
@@ -92,7 +92,7 @@ export function getSubscriptionFromCheckIn(
 
 	if (actual == null) {
 		actual = getSubscriptionPlan(
-			'community-with-account',
+			'enterprise',
 			false,
 			0,
 			undefined,
