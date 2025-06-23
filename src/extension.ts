@@ -221,14 +221,10 @@ export async function activate(context: ExtensionContext): Promise<GitLensApi | 
 		}
 	});
 
-	if (container.debugging) {
-		// Set context to only show some commands when using the pre-release version or debugging
-		void setContext('gitlens:debugging', true);
-		void setContext('gitlens:prerelease', true);
-	} else if (container.prerelease) {
-		// Set context to only show some commands when using the pre-release version
-		void setContext('gitlens:prerelease', true);
-	}
+	// Set context to only show all commands
+	void setContext('gitlens:debugging', true);
+	void setContext('gitlens:prerelease', true);
+
 	// NOTE: We might have to add more schemes to this list, because the schemes that are used in the `resource*` context keys don't match was URI scheme is returned in the APIs
 	// For example, using the remote extensions the `resourceScheme` is `vscode-remote`, but the URI scheme is `file`
 	void setContext('gitlens:schemes:trackable', [...trackableSchemes]);
